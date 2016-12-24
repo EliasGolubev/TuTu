@@ -12,4 +12,10 @@ class RoutesController < ApplicationController
   def show
     @route = Route.find(params[:id])
   end
+  #
+  # Создает новый объект Route
+  #
+  def new
+    @route = Route.new
+  end
 end
