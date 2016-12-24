@@ -39,6 +39,20 @@ class RoutesController < ApplicationController
   def edit
     @route = Route.find(params[:id])
   end
+  #
+  # Загружает из базы объект
+  # И обновляет объект в базе данных если прошла валидация.
+  #
+  def update
+    @route = Route.find(params[:id])
+    
+    # Проверка валидации
+    if @route.update(route_params)
+      redirect_to @route
+    else
+      render :edit
+    end
+  end
 
   private
   #
