@@ -53,6 +53,14 @@ class RoutesController < ApplicationController
       render :edit
     end
   end
+  #
+  # Удаляет объект из базы данных
+  #
+  def destroy
+    @route = Route.find(params[:id])
+    @route.destroy
+    redirect_to routes_path
+  end
 
   private
   #
