@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  
+  before_action :set_route, only: [:show, :edit, :update, :destroy]
   #
   # Получает все объекты класса Route
   #
@@ -10,7 +10,6 @@ class RoutesController < ApplicationController
   # Загружает конкретный объект
   #
   def show
-    @route = Route.find(params[:id])
   end
   #
   # Создает новый объект Route
@@ -24,7 +23,6 @@ class RoutesController < ApplicationController
   #
   def create
     @route = Route.new(route_params)
-    
     # Проверка валидации
     if @route.save
       redirect_to @route
@@ -36,16 +34,13 @@ class RoutesController < ApplicationController
   # Загружает объект Route
   # Рендерит этот объект
   #
-  def edit
-    @route = Route.find(params[:id])
+  def edit  
   end
   #
   # Загружает из базы объект
   # И обновляет объект в базе данных если прошла валидация.
   #
-  def update
-    @route = Route.find(params[:id])
-    
+  def update    
     # Проверка валидации
     if @route.update(route_params)
       redirect_to @route
@@ -57,7 +52,6 @@ class RoutesController < ApplicationController
   # Удаляет объект из базы данных
   #
   def destroy
-    @route = Route.find(params[:id])
     @route.destroy
     redirect_to routes_path
   end
@@ -70,4 +64,7 @@ class RoutesController < ApplicationController
     params.require(:route).permit(:name)
   end
 
+  def set_route
+    @route = Route.find(params[:id])
+  end
 end
