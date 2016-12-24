@@ -31,7 +31,13 @@ class RoutesController < ApplicationController
     else
       render :new
     end
-
+  end
+  #
+  # Загружает объект Route
+  # Рендерит этот объект
+  #
+  def edit
+    @route = Route.find(params[:id])
   end
 
   private
