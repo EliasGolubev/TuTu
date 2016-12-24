@@ -23,15 +23,23 @@ class RoutesController < ApplicationController
   # Создает новый объект Route
   #
   def create
-    @route = Route.new(train_params)
+    @route = Route.new(route_params)
+    
+    # Проверка валидации
+    if @route.save
+      redirect_to @route
+    else
+      render :new
+    end
+
   end
 
   private
   #
   # Strong params 
   #
-  def train_params
-    params.require(:train).permit(:name)
+  def route_params
+    params.require(:route).permit(:name)
   end
 
 end
