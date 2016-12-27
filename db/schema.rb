@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161227160657) do
 
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
-    t.integer "routes"
+    t.integer "route_id"
   end
 
   create_table "routes", force: :cascade do |t|
