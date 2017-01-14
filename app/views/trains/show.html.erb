@@ -12,6 +12,16 @@
     Не указано
   <% end %>
 </p>
+<p>
+  <strong>Маршрут поезда:</strong>
+  <% if @train.current_station.routes.present? %>
+    <% @train.current_station.routes.each do |route| %>
+      <%= route.name %>
+    <% end %>
+  <% else %>
+    Маршрут не назначен
+  <% end %>
+</p>
 
 <%= link_to 'Изменить', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
