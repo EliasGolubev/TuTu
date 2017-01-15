@@ -14,10 +14,8 @@
 </p>
 <p>
   <strong>Маршрут поезда:</strong>
-  <% if @train.current_station.routes.present? %>
-    <% @train.current_station.routes.each do |route| %>
-      <%= route.name %>
-    <% end %>
+  <% if @train.route.present? %>
+    <%= @train.route.name %>
   <% else %>
     Маршрут не назначен
   <% end %>

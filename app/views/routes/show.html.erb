@@ -19,6 +19,17 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Список поездов на этом маршруте:</strong>
+  <% if @route.trains.empty? %>
+    Поездов на маршруте нет
+  <% else %>
+    <% @route.trains.each do |train| %>
+      <li><%= train.number %></li>
+    <% end %>
+  <% end %>
+</p>
+
 
 <%= link_to 'Изменить', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>
