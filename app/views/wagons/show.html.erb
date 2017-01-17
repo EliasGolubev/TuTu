@@ -15,5 +15,14 @@
   <%= @wagon.lower_seats %>
 </p>
 
+<p>
+  <strong>Поезд:</strong>
+  <% if @wagon.train.present? %>
+    <%= @wagon.train.number %>
+  <% else %>
+    Поезд не назначен
+  <% end %>
+</p>
+
 <%= link_to 'Изменить', edit_wagon_path(@wagon) %> |
 <%= link_to 'Назад', wagons_path %>
