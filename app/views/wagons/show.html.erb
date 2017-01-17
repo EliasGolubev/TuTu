@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @wagon.wagon_type %>
+</p>
+
+<p>
+  <strong>Кол-во верхних мест:</strong>
+  <%= @wagon.top_seats %>
+</p>
+
+<p>
+  <strong>Кол-во нижних мест:</strong>
+  <%= @wagon.lower_seats %>
+</p>
+
+<%= link_to 'Изменить', edit_wagon_path(@wagon) %> |
+<%= link_to 'Назад', wagons_path %>
