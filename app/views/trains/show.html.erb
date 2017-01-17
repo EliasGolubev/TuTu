@@ -21,5 +21,40 @@
   <% end %>
 </p>
 
+<p>
+  <% if @train.wagons.empty? %>
+    Нет вагонов
+  <% else %>
+
+    <% count_second_class = 0 %>
+    <% second_class_top_seats = 0 %>
+    <% second_class_lower_seats = 0 %>
+
+    <% count_compartment = 0 %>
+    <% compartment_top_seats = 0 %>
+    <% compartment__lower_seats = 0 %>
+
+    <% @train.wagons.each do |wagon| %>
+      <% if wagon.wagon_type == 'купейный' %>
+        <% count_compartment += 1 %>
+        <% compartment_top_seats += wagon.top_seats %>
+        <% compartment__lower_seats += wagon.lower_seats %>
+      <% else %>
+        <% count_second_class += 1 %>
+        <% second_class_top_seats += wagon.top_seats %>
+        <% second_class_lower_seats += wagon.lower_seats %>
+      <% end %>
+    <% end %>
+
+    <p>Кол-во купейных вагонов: <%= count_compartment %></p>
+    <p>Кол-во мест купейных  верхних: <%= compartment_top_seats %></p>
+    <p>Кол-во мест купейных  нижних: <%= compartment__lower_seats %></p>
+
+    <p>Кол-во плацкартных вагонов: <%= count_second_class %></p>
+    <p>Кол-во мест плацкартных верхних: <%= second_class_top_seats %></p>
+    <p>Кол-во мест плацкартных нижних: <%= second_class_lower_seats %></p>  
+  <% end %>
+</p>
+
 <%= link_to 'Изменить', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
