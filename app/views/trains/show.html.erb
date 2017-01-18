@@ -26,33 +26,13 @@
     Нет вагонов
   <% else %>
 
-    <% count_second_class = 0 %>
-    <% second_class_top_seats = 0 %>
-    <% second_class_lower_seats = 0 %>
+    <p><strong>Кол-во купейных вагонов:</strong> <%= @train.count('купейный') %></p>
+    <p><strong>Кол-во мест купейных  верхних:</strong> <%= @train.count('top','купейный') %> </p>
+    <p><strong>Кол-во мест купейных  нижних:</strong> <%= @train.count('lower','купейный') %></p>
 
-    <% count_compartment = 0 %>
-    <% compartment_top_seats = 0 %>
-    <% compartment__lower_seats = 0 %>
-
-    <% @train.wagons.each do |wagon| %>
-      <% if wagon.wagon_type == 'купейный' %>
-        <% count_compartment += 1 %>
-        <% compartment_top_seats += wagon.top_seats %>
-        <% compartment__lower_seats += wagon.lower_seats %>
-      <% else %>
-        <% count_second_class += 1 %>
-        <% second_class_top_seats += wagon.top_seats %>
-        <% second_class_lower_seats += wagon.lower_seats %>
-      <% end %>
-    <% end %>
-
-    <p>Кол-во купейных вагонов: <%= count_compartment %></p>
-    <p>Кол-во мест купейных  верхних: <%= compartment_top_seats %></p>
-    <p>Кол-во мест купейных  нижних: <%= compartment__lower_seats %></p>
-
-    <p>Кол-во плацкартных вагонов: <%= count_second_class %></p>
-    <p>Кол-во мест плацкартных верхних: <%= second_class_top_seats %></p>
-    <p>Кол-во мест плацкартных нижних: <%= second_class_lower_seats %></p>  
+    <p><strong>Кол-во плацкартных вагонов:</strong> <%= @train.count('плацкартный') %></p>
+    <p><strong>Кол-во мест плацкартных верхних:</strong> <%= @train.count('top','плацкартный') %></p>
+    <p><strong>Кол-во мест плацкартных нижних:</strong> <%= @train.count('lower','плацкартный') %></p>  
   <% end %>
 </p>
 
