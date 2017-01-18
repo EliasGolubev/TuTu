@@ -21,5 +21,20 @@
   <% end %>
 </p>
 
+<p>
+  <% if @train.wagons.empty? %>
+    Нет вагонов
+  <% else %>
+
+    <p><strong>Кол-во купейных вагонов:</strong> <%= @train.count('купейный') %></p>
+    <p><strong>Кол-во мест купейных  верхних:</strong> <%= @train.count('top','купейный') %> </p>
+    <p><strong>Кол-во мест купейных  нижних:</strong> <%= @train.count('lower','купейный') %></p>
+
+    <p><strong>Кол-во плацкартных вагонов:</strong> <%= @train.count('плацкартный') %></p>
+    <p><strong>Кол-во мест плацкартных верхних:</strong> <%= @train.count('top','плацкартный') %></p>
+    <p><strong>Кол-во мест плацкартных нижних:</strong> <%= @train.count('lower','плацкартный') %></p>  
+  <% end %>
+</p>
+
 <%= link_to 'Изменить', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
