@@ -35,39 +35,39 @@
     <ul>
       <li>
         Кол-во мест купейных верхних:
-        <%= @train.wagons.sum_coupe_top_seats%>
+        <%= @train.sum_seats(CoupeWagon, 'top_seats')%>
       </li>
       <li>
         Кол-во мест купейных нижних:
-        <%= @train.wagons.sum_coupe_bottom_seats %>
+        <%= @train.sum_seats(CoupeWagon, 'bottom_seats') %>
       </li>
       <li>
         Кол-во мест плацкартных верхних:
-        <%= @train.wagons.sum_economy_top_seats %>
+        <%= @train.sum_seats(EconomyWagon, 'top_seats') %>
       </li>
       <li>
         Кол-во мест плацкартных нижних:
-        <%= @train.wagons.sum_economy_bottom_seats %>
+        <%= @train.sum_seats(EconomyWagon, 'bottom_seats') %>
       </li>
       <li>
         Кол-во мест плацкартных боковых верхних:
-        <%= @train.wagons.sum_economy_side_top_seats %>
+        <%= @train.sum_seats(EconomyWagon, 'side_top_seats') %>
       </li>
       <li>
         Кол-во мест плацкартных боковых нижних:
-        <%= @train.wagons.sum_economy_side_bottom_seats %>
+        <%= @train.sum_seats(EconomyWagon, 'side_bottom_seats') %>
       </li>
       <li>
         Кол-во мест СВ нижних:
-        <%= @train.wagons.sum_sv_bottom_seats %>
+        <%= @train.sum_seats(SVWagon, 'bottom_seats') %>
       </li>
       <li>
         Кол-во мест СВ нжних боковых: 
-        <%= @train.wagons.sum_sv_side_bottom_seats %>
+        <%= @train.sum_seats(SVWagon, 'side_bottom_seats') %>
       </li>
       <li>
         Кол-во сидячих мест:
-        <%= @train.wagons.sum_sitting_seats %>
+        <%= @train.sum_seats(SittingWagon, 'sitting_seats') %>
       </li>
     </ul>
   <% end %>
