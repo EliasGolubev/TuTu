@@ -9,7 +9,7 @@ class Route < ApplicationRecord
 
  before_validation :set_name
 
-
+ 
   private
   
   def set_name
@@ -21,4 +21,6 @@ class Route < ApplicationRecord
       errors.add(:base, 'Маршрут должен содержать минимум 2 станции')
     end
   end
+
+
 end
