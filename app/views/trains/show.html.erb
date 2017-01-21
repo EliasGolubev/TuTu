@@ -27,7 +27,7 @@
   <% else %>
     <p><strong>Вагоны</strong></p>
     <ul>
-      <% @train.wagons.each do |wagon| %>
+      <% @train.order_wagons.each do |wagon| %>
         <li><%= link_to "Вагон №#{wagon.number}", wagon_path(wagon) %></li>
       <% end %>
     </ul>
