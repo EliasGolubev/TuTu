@@ -7,4 +7,8 @@ class Train < ApplicationRecord
   def order_wagons
     order_wagons_flag ? wagons.at_first : wagons.from_end
   end
+
+  def sum_seats(wagon_type, seats_type)
+    self.wagons.where(type: wagon_type).sum(seats_type)
+  end
 end
