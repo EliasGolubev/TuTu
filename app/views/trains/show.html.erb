@@ -25,14 +25,51 @@
   <% if @train.wagons.empty? %>
     Нет вагонов
   <% else %>
-
-    <p><strong>Кол-во купейных вагонов:</strong> <%= @train.count('купейный') %></p>
-    <p><strong>Кол-во мест купейных  верхних:</strong> <%= @train.count('top','купейный') %> </p>
-    <p><strong>Кол-во мест купейных  нижних:</strong> <%= @train.count('lower','купейный') %></p>
-
-    <p><strong>Кол-во плацкартных вагонов:</strong> <%= @train.count('плацкартный') %></p>
-    <p><strong>Кол-во мест плацкартных верхних:</strong> <%= @train.count('top','плацкартный') %></p>
-    <p><strong>Кол-во мест плацкартных нижних:</strong> <%= @train.count('lower','плацкартный') %></p>  
+    <p><strong>Вагоны</strong></p>
+    <ul>
+      <% @train.wagons.each do |wagon| %>
+        <li><%= link_to "Вагон №#{wagon.number}", wagon_path(wagon) %></li>
+      <% end %>
+    </ul>
+    <p><strong>Информация о местах</strong></p>
+    <ul>
+      <li>
+        Кол-во мест купейных верхних:
+        <%= @train.wagons.sum_coupe_top_seats%>
+      </li>
+      <li>
+        Кол-во мест купейных нижних:
+        <%= @train.wagons.sum_coupe_bottom_seats %>
+      </li>
+      <li>
+        Кол-во мест плацкартных верхних:
+        <%= @train.wagons.sum_economy_top_seats %>
+      </li>
+      <li>
+        Кол-во мест плацкартных нижних:
+        <%= @train.wagons.sum_economy_bottom_seats %>
+      </li>
+      <li>
+        Кол-во мест плацкартных боковых верхних:
+        <%= @train.wagons.sum_economy_side_top_seats %>
+      </li>
+      <li>
+        Кол-во мест плацкартных боковых нижних:
+        <%= @train.wagons.sum_economy_side_bottom_seats %>
+      </li>
+      <li>
+        Кол-во мест СВ нижних:
+        <%= @train.wagons.sum_sv_bottom_seats %>
+      </li>
+      <li>
+        Кол-во мест СВ нжних боковых: 
+        <%= @train.wagons.sum_sv_side_bottom_seats %>
+      </li>
+      <li>
+        Кол-во сидячих мест:
+        <%= @train.wagons.sum_sitting_seats %>
+      </li>
+    </ul>
   <% end %>
 </p>
 
