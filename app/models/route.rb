@@ -7,10 +7,9 @@ class Route < ApplicationRecord
  validates :name, presence: true
  validate :station_count
 
- before_validation :set_name
+ validate :station_count
 
- 
-  private
+ private
   
   def set_name
     self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
@@ -21,6 +20,4 @@ class Route < ApplicationRecord
       errors.add(:base, 'Маршрут должен содержать минимум 2 станции')
     end
   end
-
-
 end
