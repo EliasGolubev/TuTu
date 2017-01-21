@@ -2,7 +2,7 @@
 
 <p>
   <strong>Тип:</strong>
-  <%= @wagon.wagon_type %>
+  <%= @wagon.type %>
 </p>
 
 <p>
@@ -12,7 +12,22 @@
 
 <p>
   <strong>Кол-во нижних мест:</strong>
-  <%= @wagon.lower_seats %>
+  <%= @wagon.bottom_seats %>
+</p>
+
+<p>
+  <strong>Кол-во боковых верхних мест:</strong>
+  <%= @wagon.side_top_seats %>
+</p>
+
+<p>
+  <strong>Кол-во нижних боковых мест:</strong>
+  <%= @wagon.side_bottom_seats %>
+</p>
+
+<p>
+  <strong>Кол-во сидячих мест:</strong>
+  <%= @wagon.sitting_seats %>
 </p>
 
 <p>

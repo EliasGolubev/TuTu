@@ -4,13 +4,11 @@ class Train < ApplicationRecord
   has_many :wagons
   has_many :tickets
 
-  def count(seats_type=nil, type)
-    count = 0
-    self.wagons.each do |wagon|
-      count += wagon.lower_seats if seats_type == 'lower' && wagon.wagon_type == type
-      count += wagon.top_seats if seats_type == 'top' && wagon.wagon_type == type
-      count += 1 if seats_type == nil && wagon.wagon_type == type
-    end
-    return count
+  def order_wagons
+    order_wagons_flag ? wagons.at_first : wagons.from_end
+  end
+
+  def sum_seats(wagon_type, seats_type)
+    self.wagons.where(type: wagon_type).sum(seats_type)
   end
 end
