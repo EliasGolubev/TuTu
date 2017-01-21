@@ -6,6 +6,9 @@ class Wagon < ApplicationRecord
   
   before_validation :count_number
 
+  scope :at_first, -> { order('number ASC') }
+  scope :from_end, -> { order('number DESC') }
+
   scope :sum_coupe_top_seats,    -> { where(type: CoupeWagon).sum('top_seats') }
   scope :sum_coupe_bottom_seats, -> { where(type: CoupeWagon).sum('bottom_seats') }
 
