@@ -1,0 +1,28 @@
+<h3>Новый билет</h3>
+<%= form_for @ticket do |f| %>
+  
+  <div class="field">
+    <%= f.label :user_id, "Имя пользователя" %>
+    <%= f.collection_select :user_id, User.all, :id, :name %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :fullname, "ФИО" %>
+    <%= f.text_field :fullname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passport_number, 'Номер паспорта' %>
+    <%= f.text_field :passport_number %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :train_id,         value: params[:train_id] %>
+    <%= f.hidden_field :first_station_id, value: params[:first_station_id] %>
+    <%= f.hidden_field :last_station_id,  value: params[:last_station_id] %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

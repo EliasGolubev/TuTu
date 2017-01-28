@@ -1,0 +1,34 @@
+<h3>Результаты поиска</h3>
+
+<% if @trains.empty? %>
+  Нет поездов
+<% else %>
+  
+  <table>
+    <thead>
+      <th>
+        <td>Номер поезда</td>
+        <td>Время отправки со станции</td>
+        <td>Время прибытия на станцию</td>
+        <td></td>
+      </th>
+    </thead>
+    <tbody>
+      <% @trains.each do |train| %>
+      <th>
+        <td><%= train.number %></td>
+        <td><%= @first_station.time_arival_now(train.route) %></td>
+        <td><%= @last_station.time_departure_now(train.route) %></td>
+        <td>
+          <%= form_tag new_ticket_path, method: :get do %>
+            <%= hidden_field_tag :train_id, train.id %>
+            <%= hidden_field_tag :first_station_id, @first_station.id %>
+            <%= hidden_field_tag :last_station_id, @last_station.id %>
+            <%= submit_tag "Купить" %>
+          <% end %>
+        </td>
+      </th>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

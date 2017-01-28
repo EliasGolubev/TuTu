@@ -1,0 +1,7 @@
+<h3>Поиск билетов</h3>
+
+<%= form_tag search_path, method: "post" do %>
+  <%= select :first_station, :railway_station_id, RailwayStation.all.collect { |station| [station.title, station.id] } %>
+  <%= select :last_station, :railway_station_id, RailwayStation.all.collect { |station| [station.title, station.id] } %>
+  <%= submit_tag 'Найти' %>
+<% end %>

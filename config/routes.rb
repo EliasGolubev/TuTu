@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     patch :update_time, on: :member
   end
   resources :routes
+  resources :tickets, only: ['new', 'create', 'show']
+
+  resource :search, only: ['show', 'create']
   # resources :wagons
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
