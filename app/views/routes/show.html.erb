@@ -13,9 +13,37 @@
   <% if @route.railway_stations.empty? %>
     Список пуст
   <% else %>
-    <% @route.railway_stations.each do |station| %>
-      <li><%= station.title %></li>
-    <% end %>
+    <table>
+      <thead>
+        <tr>
+          <td width='100px'>Название станции</td>
+          <td>Позиция</td>
+          <td>Время прибытия</td>
+          <td>Время отправления</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @route.railway_stations.ordered.each do |station| %>
+          <tr>
+            <td><%= station.title %></td>
+            <td>
+              <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+                <%= number_field_tag :position, station.position_in(@route) %>
+                <%= hidden_field_tag :route_id, @route.id %>
+                <%= submit_tag "Изменить" %>
+              <% end %>
+              
+            </td>
+            <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+              <td><%= text_field_tag :arrival, station.time_arival_now(@route) %></td>
+              <td><%= text_field_tag :departure, station.time_departure_now(@route) %></td>
+              <td><%= hidden_field_tag :route_id, @route.id %></td>
+              <td><%= submit_tag "Изменить время" %></td>
+            <% end %>
+          </tr>
+        <% end %> 
+      </tbody>
+    </table>
   <% end %>
 </p>
 

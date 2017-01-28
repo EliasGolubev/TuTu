@@ -1,0 +1,9 @@
+<h3>Билет</h3>
+
+<ul>
+  <li>Пользователь: <%= @ticket.user.name %></li>
+  <li>ФИО: <%= @ticket.fullname %></li>
+  <li>Номер паспорта: <%= @ticket.passport_number %></li>
+  <li>Начальная станция: <%= @ticket.first_station.title %></li>
+  <li>Конечная станция: <%= @ticket.last_station.title %></li>
+</ul>

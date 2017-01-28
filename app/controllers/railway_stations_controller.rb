@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :update_time]
 
   def index
     @railway_stations = RailwayStation.all
@@ -31,11 +31,26 @@ class RailwayStationsController < ApplicationController
     else
       render :edit
     end
+    # render html: params.each { | x | x }
   end
 
   def destroy
     @railway_station.destroy
     redirect_to railway_stations_path
+  end
+
+  def update_position
+    @route = Route.find(params[:route_id])
+    @railway_station.update_position(@route, params[:position])
+    redirect_to @route
+    # render html: params.each { | x | x }
+  end
+
+  def update_time
+    @route = Route.find(params[:route_id])
+    @railway_station.update_time(@route, params[:arrival], params[:departure])
+    redirect_to @route
+    #render html: params.each { | x | x }
   end
 
   private
