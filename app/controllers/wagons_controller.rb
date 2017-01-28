@@ -1,19 +1,12 @@
 class WagonsController < ApplicationController
-  before_action :set_wagon, only: [:show, :edit, :update, :destroy]
+  before_action :set_wagon, only: [:show, :edit]
   before_action :set_train, only: [:create, :new]
-
-  def index 
-    @wagons = Wagon.all
-  end
 
   def show
   end
 
   def new
     @wagon = Wagon.new
-  end
-
-  def edit
   end
 
   def create
@@ -24,19 +17,6 @@ class WagonsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    if @wagon.update(wagon_params)
-      redirect_to @wagon
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @wagon.destroy
-    redirect_to wagons_path
   end
 
   private

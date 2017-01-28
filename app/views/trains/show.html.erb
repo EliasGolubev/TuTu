@@ -28,7 +28,10 @@
     <p><strong>Вагоны</strong></p>
     <ul>
       <% @train.order_wagons.each do |wagon| %>
-        <li><%= link_to "Вагон №#{wagon.number}", wagon %></li>
+        <li>
+          <table>
+            <td><%= link_to "Вагон №#{wagon.number}", wagon %></li></td>
+          </table>
       <% end %>
     </ul>
     <p><strong>Информация о местах</strong></p>
