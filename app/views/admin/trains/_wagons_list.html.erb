@@ -1,0 +1,8 @@
+<p> 
+  <strong>Вагоны</strong>
+  <ul> 
+    <% @train.order_wagons.each do |wagon| %>
+      <li><%= link_to "Вагон №#{wagon.number}", [:admin, wagon] %></li>
+    <% end %>
+  </ul>
+</p>

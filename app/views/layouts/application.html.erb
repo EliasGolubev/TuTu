@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <p id="notice" class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <%= render 'common/user_signed_in' %>
+
+    <hr />
+
     <%= yield %>
     
     <div class="container">

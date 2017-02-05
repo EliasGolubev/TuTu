@@ -2,11 +2,6 @@
 <%= form_for @ticket do |f| %>
   
   <div class="field">
-    <%= f.label :user_id, "Имя пользователя" %>
-    <%= f.collection_select :user_id, User.all, :id, :name %>  
-  </div>
-
-  <div class="field">
     <%= f.label :fullname, "ФИО" %>
     <%= f.text_field :fullname %>
   </div>
@@ -26,3 +21,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<br />
+
+<%= link_to "Список билетов", tickets_path %>
