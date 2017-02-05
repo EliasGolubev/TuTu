@@ -1,0 +1,11 @@
+<h3>Билет</h3>
+<p>Билет купил: <%= @ticket.user.email %></p>
+<ul>
+  <li>Пользователь: <%= @ticket.user.name %></li>
+  <li>ФИО: <%= @ticket.fullname %></li>
+  <li>Номер паспорта: <%= @ticket.passport_number %></li>
+  <li>Начальная станция: <%= @ticket.first_station.title %></li>
+  <li>Конечная станция: <%= @ticket.last_station.title %></li>
+</ul>
+
+<%= link_to "Список билетов", admin_tickets_path %>

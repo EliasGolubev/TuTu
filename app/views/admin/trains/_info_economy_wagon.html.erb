@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">Плацкартные вагоны</th>
+    </tr>
+    <tr>
+      <th width="150px">Верхние места</th>
+      <th width="150px">Нижние места</th>
+      <th width="200px">Верхние боковые места</th>
+      <th width="200px">Нижние боковые места</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @train.sum_seats(EconomyWagon, 'top_seats') %></td>
+    <td><%= @train.sum_seats(EconomyWagon, 'bottom_seats') %></td>
+    <td><%= @train.sum_seats(EconomyWagon, 'side_top_seats') %></td>
+    <td><%= @train.sum_seats(EconomyWagon, 'side_bottom_seats') %></td>
+  </tbody>
+</table>

@@ -9,6 +9,8 @@ class Route < ApplicationRecord
 
  validate :station_count
 
+ before_validation :set_name
+ 
  private
   
   def set_name

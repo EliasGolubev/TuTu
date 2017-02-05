@@ -5,3 +5,5 @@
   <%= select :last_station, :railway_station_id, RailwayStation.all.collect { |station| [station.title, station.id] } %>
   <%= submit_tag 'Найти' %>
 <% end %>
+
+<%= link_to "Список билетов", tickets_path %>

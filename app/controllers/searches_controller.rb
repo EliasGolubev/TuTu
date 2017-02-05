@@ -10,6 +10,5 @@ class SearchesController < ApplicationController
     @trains = Search.train_on_route(@first_station, @last_station)
 
     render :search_result
-    # render html: params.each { | x | x }
   end 
 end
