@@ -1,0 +1,117 @@
+ru:
+  common:
+    errors: 'Возникли ошибки при заполнении формы'
+    are_you_sure: 'Вы уверены?'
+    show: 'Показать'
+    edit: 'Изменить'
+    delete: 'Удалить'
+    back: 'Назад'
+  admin:
+    railway_stations:
+      index:
+        title: 'Станции'
+        table_header_name: 'Название'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Изменить станцию'
+      show:
+        title: 'Станция: '
+      create:
+        notice: 'Станция %{action} успешно создана'
+      update:
+        notice: 'Станция %{action} успешно изменена'
+      destroy:
+        notice: 'Станция %{action} успешно удалена'
+      form:
+        submit: '%{action} станцию'
+      common:
+        new: 'Создать новую станцию'
+    trains:
+      index:
+        title: 'Поезда'
+      new:
+        title: 'Новый поезд'
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
+      edit:
+        title: 'Изменить поезд'
+      show:
+        title: 'Поезд: '
+      create:
+        notice: 'Поезд %{action} успешно создан'
+      update:
+        notice: 'Поезд %{action} успешно изменен'
+      destroy:
+        notice: 'Поезд %{action} успешно удален'
+      form: 
+        submit: '%{action} поезд'
+      common:
+        new: 'Создать новый поезд'
+    wagons:
+      new:
+        title: 'Новый выгон'
+      show:
+        title: 'Вагон'
+      create:
+        notice: 'Вагон добавлен'
+      form: 
+        submit: '%{action} вагон'
+    routes:
+      index:
+        title: 'Маршруты'
+        table_header_name: 'Имя'
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Изменить маршрут'
+      show:
+        title: 'Маршрут: '
+        station_title: 'Станции в маршруте'
+        no_stations: 'Список станций пуст'
+        station_position: 'Позиция'
+        arrival_time: 'Время прибытия'
+        departure_time: 'Время отправления'
+        edit: 'Изменить'
+        train_list: 'Список поездов на этом маршруте: '
+        no_trains: 'Поездов на маршруте нет'
+      create:
+        notice: 'Маршрут %{action} успешно создан'
+      update:
+        notice: 'Маршрут %{action} успешно изменен'
+      destroy:
+        notice: 'Маршрут %{action} успешно удален'
+      form:
+        submit: '%{action} маршрут'
+      common:
+        new: 'Создать новый маршрут'
+    tickets:
+      index:
+        title: 'Билеты'
+      edit:
+        title: 'Изменение билета'
+      show:
+        title: 'Билет'
+      update:
+        notice: 'Билет изменен'
+      destroy:
+        notice: 'Билет удален'
+      form:
+        submit: '%{action} билет'
+      common: 
+        link_to_tickets: 'Список билетов'
+    control_panel:
+      index:
+        title: 'Панель управления'
+  tickets:
+    new:
+      title: 'Новый билет'
+      submit: 'Купить билет'
+    common: 
+      link_to_tickets: 'Список билетов'
+      link_to_search: 'Купить новый билет'
+  searches:
+    show:
+      title: 'Поиск билетов'
+      btn_search: 'Найти'

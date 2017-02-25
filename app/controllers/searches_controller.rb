@@ -1,4 +1,7 @@
 class SearchesController < ApplicationController
+  
+  add_breadcrumb 'Поиск', [:root], only: [:show, :create]
+
   def show
     @stations = RailwayStation.all
   end

@@ -1,65 +1,89 @@
 <p>
-  <strong>Имя:</strong>
-  <%= @route.name %>
+  <h1><%= @route.name %></h1>
 </p>
 
 <p>
-  <strong>Станции в маршруте</strong>
+  <strong><%= t('.station_title') %></strong>
 </p>
 
-<p>
+
   <% if @route.railway_stations.empty? %>
-    Список пуст
+    <%= t('.no_stations') %>
   <% else %>
-    <table>
-      <thead>
-        <tr>
-          <td width='100px'>Название станции</td>
-          <td>Позиция</td>
-          <td>Время прибытия</td>
-          <td>Время отправления</td>
-        </tr>
-      </thead>
-      <tbody>
+  
+  <% @route.railway_stations.ordered.each do |station| %>
+  <div class="station-container">
+  <div class="row">
+    <div class="col-md-4">
+      
+      <h3><%= station.title %></h3>
+    </div>
+  </div>
+    
+    <div class="row">
+  
+      <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
 
-        <% @route.railway_stations.ordered.each do |station| %>
-          <tr>
-            <td><%= station.title %></td>
-            <td>
-              <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
-                <%= number_field_tag :position, station.position_in(@route) %>
-                <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag "Изменить" %>
-              <% end %>
-            </td>
+        <div class="col-md-12">
+          <label><%= t('.station_position') %></label>
+            <%= number_field_tag :position, station.position_in(@route), type: 'number', class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row row-btn-bottom">
+      <div class="col-md-10" ></div>
+      <div class="col-md-2">
+        <%= hidden_field_tag :route_id, @route.id %>
+        <%= submit_tag t('.edit'), class: "btn btn-primary"%>
+      </div>
+    </div>
+    
+    <% end %>
 
-            <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
-              <td><%= text_field_tag :arrival, station.time_arival_now(@route) %></td>
-              <td><%= text_field_tag :departure, station.time_departure_now(@route) %></td>
-              <td><%= hidden_field_tag :route_id, @route.id %></td>
-              <td><%= submit_tag "Изменить время" %></td>
-            <% end %>
 
-          </tr>
-        <% end %> 
+    <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
+    <div class="row">
 
-      </tbody>
-    </table>
+      <div class="col-md-12">
+        <label><%= t('.arrival_time') %></label>
+        <%= text_field_tag :arrival, station.time_arival_now(@route), type: 'time', class: 'form-control'%>
+      </div>
+
+    </div>
+
+    <div class="row">
+      
+      <div class="col-md-12">
+        <label><%= t('.departure_time') %></label>
+        <%= text_field_tag :departure, station.time_departure_now(@route), type: 'time', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class=" row row-btn-bottom">
+      <div class="col-md-10" ></div>
+      <div class="col-md-2" >
+        <%= hidden_field_tag :route_id, @route.id %>
+        <%= submit_tag t('.edit'), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
   <% end %>
 
-</p>
+  <% end %>
 
 <p>
-  <strong>Список поездов на этом маршруте:</strong>
+  <strong><%= t('.train_list') %></strong>
   <% if @route.trains.empty? %>
-    Поездов на маршруте нет
+    <%= t('.no_trains') %>
   <% else %>
     <% @route.trains.each do |train| %>
-      <li><%= train.number %></li>
+      <br />
+      <%= train.number %>
     <% end %>
   <% end %>
 </p>
 
-
-<%= link_to 'Изменить', edit_admin_route_path(@route) %> |
-<%= link_to 'Назад', admin_routes_path %>
+<div class="link-down">
+  <%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+  <%= link_to t('common.back'), admin_routes_path %>
+</div>

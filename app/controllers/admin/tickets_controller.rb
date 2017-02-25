@@ -1,19 +1,26 @@
-class Admin::TicketsController < ApplicationController
+class Admin::TicketsController < Admin::BaseController
   before_action :set_ticket, only: [:destroy, :show, :edit, :update]
+  
+  add_breadcrumb I18n.t('admin.control_panel.index.title'), [:admin,:control_panels_index]
+  add_breadcrumb I18n.t('admin.tickets.index.title'), [:admin,:tickets], only: [:show, :edit]
 
   def index
+    add_breadcrumb t('.title')
+
     @tickets = Ticket.all
   end
 
   def show
+    add_breadcrumb t('.title')
   end
 
   def edit
+    add_breadcrumb t('.title')
   end
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to [:admin, @ticket]
+      redirect_to [:admin, @ticket], :notice => t('.notice')
     else
       render :edit
     end
@@ -21,7 +28,7 @@ class Admin::TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to admin_tickets_path
+    redirect_to admin_tickets_path, :notice => t('.notice')
   end
 
   private

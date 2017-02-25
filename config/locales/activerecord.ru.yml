@@ -1,0 +1,42 @@
+ru:
+  activerecord:
+    models:
+      user: 'Пользователь'
+      railway_station: 'Станция'
+      train: 'Поезд'
+      route: 'Маршрут'
+    attributes:
+      user:
+        name: 'Имя'
+        surname: 'Фамилия'
+        password_confirmation: 'Повтор пароля'
+        email: 'e-mail'
+        password: 'Пароль'
+        remember_me: 'Запомнить'
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
+      route:
+        name: 'Имя маршрута'
+        railway_station_ids: 'Станции в маршруте'
+      wagon:
+        type: 'Тип вагона'
+        top_seats: 'Количество верхних мест:'
+        lower_seats: 'Количество нижних мест:'
+        side_top_seats: 'Количество верхних боковых мест:'
+        side_bottom_seats: 'Количество нижних боковых мест:'
+        sitting_seats: 'Количество сидячих мест:'
+      ticket:
+        fullname: 'ФИО'
+        passport_number: 'Номер паспорта'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "должно быть указанно"

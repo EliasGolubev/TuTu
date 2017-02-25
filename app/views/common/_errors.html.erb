@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+  <div id="error_explanation" class="alert alert-danger">
+    <h3><%= t('common.errors') %></h3>
 
     <ul>
     <% resource.errors.full_messages.each do |message| %>
