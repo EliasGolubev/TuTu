@@ -2,6 +2,8 @@ class TicketsController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: [:destroy, :show]
 
+  add_breadcrumb 'Поиск', [:root], only: [:show, :index]
+
   def new
     @ticket = Ticket.new
   end

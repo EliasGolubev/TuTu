@@ -2,5 +2,7 @@
 
 <%= render 'form', wagon: @wagon %>
 
-<%= link_to 'Показать', [:admin, @wagon] %> |
-<%= link_to 'Назад', admin_wagons_path %>
+<div class="link-down">
+  <%= link_to 'Показать', [:admin, @wagon] %> |
+  <%= link_to 'Назад', admin_wagons_path %>
+</div>

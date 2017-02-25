@@ -4,18 +4,18 @@
   Нет поездов
 <% else %>
   
-  <table>
+  <table class="table">
     <thead>
-      <th>
-        <td>Номер поезда</td>
-        <td>Время отправки со станции</td>
-        <td>Время прибытия на станцию</td>
-        <td></td>
-      </th>
+      <tr>
+        <th>Номер поезда</th>
+        <th>Время отправки со станции</th>
+        <th>Время прибытия на станцию</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
       <% @trains.each do |train| %>
-      <th>
+      <tr>
         <td><%= train.number %></td>
         <td><%= @first_station.time_arival_now(train.route) %></td>
         <td><%= @last_station.time_departure_now(train.route) %></td>
@@ -24,10 +24,10 @@
             <%= hidden_field_tag :train_id, train.id %>
             <%= hidden_field_tag :first_station_id, @first_station.id %>
             <%= hidden_field_tag :last_station_id, @last_station.id %>
-            <%= submit_tag "Купить" %>
+            <%= submit_tag "Купить", class: 'btn btn-success' %>
           <% end %>
         </td>
-      </th>
+      </tr>
       <% end %>
     </tbody>
   </table>

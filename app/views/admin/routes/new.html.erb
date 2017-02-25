@@ -1,5 +1,9 @@
-<h1>Новый маршрут</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Назад', admin_routes_path %>
+<div class="link-down">
+
+<%= link_to t('common.back'), admin_routes_path %>
+
+</div>
