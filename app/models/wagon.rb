@@ -1,7 +1,6 @@
 class Wagon < ApplicationRecord
   belongs_to :train
   
-
   validates :number, presence: { message: 'номер не назначен' }
   validates :number, uniqueness: { scope: :train_id }
   
@@ -9,6 +8,10 @@ class Wagon < ApplicationRecord
 
   scope :at_first, -> { order('number ASC') }
   scope :from_end, -> { order('number DESC') }
+  scope :economy,  -> { where(type: 'EconomyWagon') }
+  scope :coupe,    -> { where(type: 'CoupeWagon') }
+  scope :sv,       -> { where(type: 'SVWagon') }
+  scope :sitting,  -> { where(type: 'SittingWagon') } 
 
   protected
 
