@@ -115,3 +115,8 @@ ru:
     show:
       title: 'Поиск билетов'
       btn_search: 'Найти'
+  welome:
+    index:
+      paragraph_description: 'Приложение для поиска и покупки билетов на железнодорожные поезда.'
+      signed_in: 'Войти'
+

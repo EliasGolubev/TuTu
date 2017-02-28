@@ -1,3 +1,7 @@
-<h1>Привет, Rails!</h1>
+<div class="jumbotron">
+  <h1>TUTU</h1>
+  <p> <%= t('welome.index.paragraph_description') %> </p>
+  <%= link_to t('welome.index.signed_in'), new_user_session_path, class: "btn btn-lg btn-success" %>
+</div>
 
-<%= link_to "Список станций", admin_railway_stations_path %>
+

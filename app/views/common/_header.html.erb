@@ -8,8 +8,9 @@
       
       <% end %>
     <% else %>
-      
-      <li><%= link_to "Войти", new_user_session_path %></li>
+      <% if !root_path %>
+        <li><%= link_to "Войти", new_user_session_path %></li>
+      <% end %>
     
     <% end %>
   </ul>
