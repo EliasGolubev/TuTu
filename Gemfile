@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'rails_12factor'
-
+gem 'postmark-rails', '>=0.10.0'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem "breadcrumbs_on_rails"
