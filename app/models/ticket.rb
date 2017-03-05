@@ -7,6 +7,9 @@ class Ticket < ApplicationRecord
   after_create :send_buy_notification
   after_destroy :send_destroy_notification
 
+  validates :fullname, presence: { message: 'не указано имя' }
+  validates :passport_number, presence: { message: 'не указан' }
+
   def route_name
     "#{first_station.title} - #{last_station.title}"
   end
