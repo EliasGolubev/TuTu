@@ -2,9 +2,11 @@
 
 <% if @trains.empty? %>
   Нет поездов
+
   <br />
   <br />
   <%= link_to 'Назад', search_path %>
+
 <% else %>
   
   <table class="table">
@@ -34,6 +36,7 @@
       <% end %>
     </tbody>
   </table>
-  <br />
+
   <%= link_to 'Назад', search_path %>
+
 <% end %>

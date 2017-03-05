@@ -1,8 +1,9 @@
 <h3><%= t('.title') %></h3>
 <%= form_for @ticket do |f| %>
 
+
   <%= render 'common/errors', resource: @ticket %>
-  
+
   <div class="form-group">
     <%= f.label :fullname %>
     <%= f.text_field :fullname, class: "form-control" %>

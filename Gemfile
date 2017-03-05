@@ -9,6 +9,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
+
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -35,7 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+
 gem 'figaro'
+
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem "breadcrumbs_on_rails"
