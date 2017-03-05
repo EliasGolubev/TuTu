@@ -56,6 +56,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "tutu_#{Rails.env}"
   config.action_mailer.perform_caching = false
+<<<<<<< HEAD
 
   config.action_mailer.default_url_options = { host: 'lit-badlands-68292.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
@@ -69,6 +70,11 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+=======
+  config.action_mailer.default_url_options = { host: "radiant-castle-89601.herokuapp.com" }
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { api_token: ENV["POSTMARK_API_TOKEN"] }
+>>>>>>> 6fdf85e1ea21aa079ff0539bf436c019acbca73c
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
