@@ -4,11 +4,11 @@ class Ticket < ApplicationRecord
   belongs_to :first_station, class_name: 'RailwayStation', foreign_key: :first_station_id
   belongs_to :last_station, class_name: 'RailwayStation', foreign_key: :last_station_id
 
-  validates :fullname, presence: { message: 'не указано имя' }
-  validates :passport_number, presence: { message: 'не указан' }
-
   after_create :send_buy_notification
   after_destroy :send_destroy_notification
+
+  validates :fullname, presence: { message: 'не указано имя' }
+  validates :passport_number, presence: { message: 'не указан' }
 
   def route_name
     "#{first_station.title} - #{last_station.title}"

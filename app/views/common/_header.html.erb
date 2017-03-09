@@ -7,7 +7,8 @@
         <li class=<%= "active" unless current_page?(root_path)%>><%= link_to "Админка", admin_control_panels_index_path %></li>
       
       <% end %>
-    <% else %>
+    <% else %>         
+
       <% if !root_path %>
         <li><%= link_to "Войти", new_user_session_path %></li>
       <% end %>

@@ -11,7 +11,8 @@ class Wagon < ApplicationRecord
   scope :economy,  -> { where(type: 'EconomyWagon') }
   scope :coupe,    -> { where(type: 'CoupeWagon') }
   scope :sv,       -> { where(type: 'SVWagon') }
-  scope :sitting,  -> { where(type: 'SittingWagon') } 
+  scope :sitting,  -> { where(type: 'SittingWagon') }
+
 
   protected
 
