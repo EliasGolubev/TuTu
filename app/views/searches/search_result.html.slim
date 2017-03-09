@@ -1,0 +1,29 @@
+h3 Результаты поиска
+
+-if @trains.empty?
+  Нет поездов
+  br
+  br
+-else
+  table class="table"
+    thead
+      tr
+        th Номер поезда
+        th Время отправки со станции
+        th Время прибытия на станцию
+        th 
+    tbody
+      -@trains.each do |train|
+        tr
+          td = train.number
+          td = @first_station.time_arival_now(train.route)
+          td = @last_station.time_departure_now(train.route)
+          td
+            = form_tag new_ticket_path, method: :get do
+              = hidden_field_tag :train_id, train.id
+              = hidden_field_tag :first_station_id, @first_station.id
+              = hidden_field_tag :last_station_id, @last_station.id
+              = submit_tag "Купить", class: 'btn btn-success'
+
+= link_to 'Назад', search_path
+

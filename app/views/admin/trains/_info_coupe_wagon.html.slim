@@ -1,0 +1,11 @@
+table
+  thead
+    tr
+      th colspan="2" Купейные вагоны
+    tr
+      th width="150px" Верхние места
+      th width="150px" Нижние места
+  tbody
+    tr
+      td = @train.sum_seats(CoupeWagon, 'top_seats')
+      td = @train.sum_seats(CoupeWagon, 'bottom_seats')

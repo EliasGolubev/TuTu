@@ -1,0 +1,65 @@
+p
+  h1 = @route.name
+
+p
+  strong = t('.station_title')
+
+- if @route.railway_stations.empty?
+  = t('.no_stations')
+- else
+  - @route.railway_stations.ordered.each do |station|
+    div class="station-container"
+      
+      div class="row"
+        div class="col-md-4"
+          h3 = station.title
+      = form_tag update_position_admin_railway_station_path(station), method: :patch do
+        
+        div class="row"
+          div class="col-md-12"
+            label = t('.station_position')
+            = number_field_tag :position, station.position_in(@route), type: 'number', class: 'form-control'
+        
+        div class="row row-btn-bottom"
+          div class="col-md-10"
+          div class="col-md-2"
+            = hidden_field_tag :route_id, @route.id
+            = submit_tag t('.edit'), class: "btn btn-primary"
+
+      = form_tag update_time_admin_railway_station_path(station), method: :patch do
+        
+        div class="row"
+          div class="col-md-12"
+            label = t('.arrival_time')
+            = text_field_tag :arrival, station.time_arival_now(@route), type: 'time', class: 'form-control'
+        
+        div class="row"
+          div class="col-md-12"
+            label = t('.departure_time')
+            = text_field_tag :departure, station.time_departure_now(@route), type: 'time', class: 'form-control'
+        
+        div class=" row row-btn-bottom"
+          div class="col-md-10"
+          div class="col-md-2"
+            = hidden_field_tag :route_id, @route.id
+            = submit_tag t('.edit'), class: "btn btn-primary"
+  
+  br
+  
+  p
+    strong = t('.train_list')
+    
+    - if @route.trains.empty?
+      = t('.no_trains')
+    - else
+      - @route.trains.each do |train|
+        br
+        = train.number
+  
+  br
+  div class="link-down"
+    = link_to t('common.edit'), edit_admin_route_path(@route)
+    = ' | '
+    = link_to t('common.back'), admin_routes_path
+
+

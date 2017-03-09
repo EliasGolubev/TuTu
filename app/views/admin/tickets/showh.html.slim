@@ -1,0 +1,14 @@
+h3 Билет
+
+p
+  Билет купил: #{@ticket.user.email}
+
+ul
+  li Пользователь:      #{@ticket.user.name}
+  li ФИО:               #{@ticket.fullname}
+  li Номер паспорта:    #{@ticket.passport_number}
+  li Начальная станция: #{@ticket.first_station.title}
+  li Конечная станция:  #{@ticket.last_station.title}
+
+div class="link-down"
+  = link_to "Список билетов", admin_tickets_path

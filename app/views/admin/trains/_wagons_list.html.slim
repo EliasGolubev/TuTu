@@ -1,0 +1,6 @@
+p
+  strong Вагоны
+
+  ul
+    - @train.order_wagons.each do |wagon|
+      li = link_to "Вагон №#{wagon.number}", [:admin, wagon]

@@ -1,0 +1,15 @@
+table
+  thead
+    tr
+      th colspan="4" Плацкартные вагоны
+    tr
+      th width="150px" Верхние места
+      th width="150px" Нижние места
+      th width="200px" Верхние боковые места
+      th width="200px" Нижние боковые места
+  tbody
+    tr
+      td = @train.sum_seats(EconomyWagon, 'top_seats')
+      td = @train.sum_seats(EconomyWagon, 'bottom_seats')
+      td = @train.sum_seats(EconomyWagon, 'side_top_seats')
+      td = @train.sum_seats(EconomyWagon, 'side_bottom_seats')

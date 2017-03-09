@@ -1,0 +1,30 @@
+= form_for [:admin, @train, @wagon] do |f|
+  
+  = render 'common/errors', resource: @wagon
+  
+  div class="form-group"
+    = f.label :type
+    = f.select :type, [CoupeWagon.name, EconomyWagon.name, SVWagon.name, SittingWagon.name], {}, {class: 'form-control'}
+
+  div class="form-group"
+    = f.label :top_seats
+    = f.number_field :top_seats, class: "form-control"
+
+  div class="form-group"
+    = f.label :lower_seats
+    = f.number_field :bottom_seats, class: "form-control"
+
+  div class="form-group"
+    = f.label :side_top_seats
+    = f.number_field :side_top_seats, class: "form-control"
+
+  div class="form-group"
+    = f.label :side_bottom_seats
+    = f.number_field :side_bottom_seats, class: "form-control"
+
+  div class="form-group"
+    = f.label :sitting_seats
+    = f.number_field :sitting_seats, class: "form-control"
+
+  div class="actions"
+    = f.submit t('.submit', action: @wagon.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-success'

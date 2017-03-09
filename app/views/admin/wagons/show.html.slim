@@ -1,0 +1,27 @@
+p 
+  strong Тип: #{@wagon.type}
+
+p
+  strong Кол-во верхних мест: #{@wagon.top_seats}
+
+p
+  strong Кол-во нижних мест: #{@wagon.bottom_seats}
+
+p
+  strong Кол-во боковых верхних мест: #{@wagon.side_top_seats}
+
+p
+  strong Кол-во нижних боковых мест: #{@wagon.side_bottom_seats}
+
+p
+  strong Кол-во сидячих мест: #{@wagon.sitting_seats}
+
+p
+  strong Поезд:
+  - if @wagon.train.present?
+    = @wagon.train.number
+  - else
+    Поезд не назначен 
+
+div class="link-down"
+  = link_to 'Назад', admin_trains_path

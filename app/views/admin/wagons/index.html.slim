@@ -1,0 +1,16 @@
+h1 Вагоны
+
+table
+  thead
+    tr
+      th Тип вагона
+      th Кол-во верхних мест
+      th Кол-во нижних мест
+      th colspan="3"
+  tbody
+    tr
+      = render @wagons
+br
+
+div class="link-down"
+  = link_to 'Создать новый вагон', new_admin_wagon_path

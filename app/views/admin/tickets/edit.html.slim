@@ -1,0 +1,29 @@
+h3 Изменение билет
+
+= form_for [:admin, @ticket] do |f|
+
+  div class="form-group"
+    = f.label :fullname, "ФИО"
+    = f.text_field :fullname, class: "form-control"
+
+  div class="form-group"
+    = f.label :passport_number, 'Номер паспорта'
+    = f.text_field :passport_number, class: "form-control"
+
+  div class="form-group"
+    = f.label :train_id
+    = f.collection_select :train_id, Train.all, :id, :number, {}, { class: "form-control" }
+
+  div class="form-group"
+    = f.label :first_station_id
+    = f.collection_select :first_station_id, RailwayStation.all, :id, :title, {}, { class: "form-control" }
+  
+  div class="form-group"
+    = f.label :last_station_id
+    = f.collection_select :last_station_id, RailwayStation.all, :id, :title, {}, { class: "form-control" }
+
+  div class="action"
+    = f.submit t('admin.tickets.form.submit', action: @ticket.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-success'
+br
+div class="link-down"
+  = link_to t('admin.tickets.common.link_to_tickets'), admin_tickets_path

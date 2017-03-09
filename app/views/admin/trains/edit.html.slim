@@ -1,0 +1,7 @@
+h1 Изменение поезда
+
+= render 'form', train: @train
+
+div class="link-down"
+  = link_to 'Показать', [:admin, @train]
+  = link_to 'Назад', admin_trains_path

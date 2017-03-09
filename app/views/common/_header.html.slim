@@ -1,0 +1,15 @@
+div class="header"
+  ul class="nav nav-pills pull-right pull-bottom"
+    
+    - if user_signed_in?
+      li = link_to "Выход", destroy_user_session_path, method: :delete
+      
+      - if current_user.admin?
+        li class="#{"active" unless current_page?(root_path)}" 
+          =link_to "Админка", admin_control_panels_index_path
+      - else
+        - if !root_path
+          li = link_to "Войти", new_user_session_path
+    
+  div class="logo"
+    = image_tag("logo.png",size: "90x90")

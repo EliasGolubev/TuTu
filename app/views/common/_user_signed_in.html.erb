@@ -1,7 +1,0 @@
-<% if user_signed_in? %>
-  Привет, <%= current_user.name %> <%= current_user.surname %><br />
-  <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-  <p>Аккаунт: <%= current_user.email %></p>
-<% else %>
-  <%= link_to "Войти", new_user_session_path %>
-<% end %>
