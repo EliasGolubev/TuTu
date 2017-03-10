@@ -2,21 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ()->
-    $('a.edit_train').click (e)->
+$(document).ready -> 
+    $('a.edit_station').click (e)-> 
         e.preventDefault()
-        
-        train_id = $(this).data('trainId')
-        form = $("#edit_train_#{train_id}")
-        title = $("#edit-title_#{train_id}")
-        
-        unless $(this).hasClass('cancel')
+
+        station_id = $(this).data("stationId")
+        form = $("#edit_railway_station_#{station_id}")
+        title = $("#railway_station_title_#{station_id}")
+
+        unless $(this).hasClass('cancel') 
             $(this).html('Отмена')
             $(this).addClass('cancel')
-        else
+        else 
             $(this).html('Изменить')
             $(this).removeClass('cancel')
-
+        
         form.toggle()
         title.toggle()
         return undefined

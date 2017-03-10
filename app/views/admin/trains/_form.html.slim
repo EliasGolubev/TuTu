@@ -1,6 +1,6 @@
-= form_for [:admin, @train] do |f|
+= form_for [:admin, train], html: { style: "display: #{hidden ? 'none': 'block'}" } do |f|
   
-  = render 'common/errors', resource: @train
+  = render 'common/errors', resource: train
 
   div class="form-group"
     = f.label :number
@@ -15,4 +15,4 @@
     = f.collection_select :route_id, Route.all, :id, :name, {}, {class: "form-control"}
 
   div class="actions"
-    = f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-success pull-right'
+    = f.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-success pull-right'

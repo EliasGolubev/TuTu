@@ -1,6 +1,6 @@
 h1 = t('.title')
 
-= render 'form'
+= render 'form', route: @route, hidden: false
 
 div class="link-down"
   = link_to t('common.back'), admin_routes_path

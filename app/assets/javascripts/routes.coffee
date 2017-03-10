@@ -3,20 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ()->
-    $('a.edit_train').click (e)->
+    $('a.edit_route').click (e)-> 
         e.preventDefault()
-        
-        train_id = $(this).data('trainId')
-        form = $("#edit_train_#{train_id}")
-        title = $("#edit-title_#{train_id}")
-        
+
+        route_id = $(this).data('routeId')
+        form = $("#edit_route_#{route_id}")
+        title = $("#title_route_#{route_id}")
+
         unless $(this).hasClass('cancel')
             $(this).html('Отмена')
             $(this).addClass('cancel')
         else
             $(this).html('Изменить')
             $(this).removeClass('cancel')
-
+            
         form.toggle()
         title.toggle()
         return undefined
