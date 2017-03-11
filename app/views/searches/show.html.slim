@@ -1,0 +1,17 @@
+h3 = t('.title')
+
+div class="row"
+  = form_tag search_path, method: "post", class: 'search_form' do
+    div class="col-md-4"
+      = select :first_station, :railway_station_id, @stations.collect { |station| [station.title, station.id] }, {}, {class: 'form-control'}
+
+    div class="col-md-4"
+      = select :last_station, :railway_station_id, @stations.collect { |station| [station.title, station.id] }, {}, {class: 'form-control'}
+
+    div class="col-md-4"
+      = submit_tag t('.btn_search'), class: 'btn btn-primary find'
+
+br
+br
+-if current_user
+  = link_to t('tickets.common.link_to_tickets'), tickets_path

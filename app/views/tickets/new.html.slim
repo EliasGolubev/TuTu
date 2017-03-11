@@ -1,0 +1,24 @@
+h3 = t('.title')
+
+= form_for @ticket do |f|
+  
+  = render 'common/errors', resource: @ticket
+
+  div class="form-group"
+    = f.label :fullname
+    = f.text_field :fullname, class: "form-control"
+
+  div class="form-group"
+    = f.label :passport_number
+    = f.text_field :passport_number, class: "form-control"
+
+  div class="field"
+    = f.hidden_field :train_id,         value: params[:train_id]
+    = f.hidden_field :first_station_id, value: params[:first_station_id]
+    = f.hidden_field :last_station_id,  value: params[:last_station_id]
+
+  div class="action"
+    = f.submit t('.submit'), class: 'btn btn-success'
+
+br
+= link_to t('tickets.common.link_to_tickets'), tickets_path

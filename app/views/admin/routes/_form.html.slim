@@ -1,0 +1,14 @@
+= form_for [:admin, route], html: { style: "display: #{hidden ? 'none': 'block'}" } do |f|
+  
+  = render 'common/errors', resource: route
+
+  div class="form-group"
+    = f.label :name
+    = f.text_field :name , class: "form-control"
+
+  div class="form-group"
+    = f.label :railway_station_ids
+    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, { }, { multiple: true, class: "form form-group form-control"}
+
+  div class="actions"
+    = f.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-success'

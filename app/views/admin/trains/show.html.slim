@@ -1,0 +1,30 @@
+p
+  strong Номер: #{@train.number}
+
+p
+  strong На станции:
+  - if @train.current_station.present?
+    = @train.current_station.title
+  - else
+    Не указано
+
+p
+  strong Маршрут поезда:
+  - if @train.route.present?
+    = @train.route.name
+  - else
+    Маршрут не назначен
+
+p
+  - if @train.wagons.empty?
+    Нет вагонов
+  - else
+    = render 'wagons_list', train: @train
+
+  p
+    = link_to 'Добавить вагон', new_admin_train_wagon_path(@train)
+
+div class="link-down"
+  = link_to 'Изменить', edit_admin_train_path(@train)
+  = ' | '
+  = link_to 'Назад', admin_trains_path
